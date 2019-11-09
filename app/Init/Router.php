@@ -20,13 +20,13 @@ class Router {
         }else{
             self::$controller = '\\Quantox\\Controllers\\'.ucfirst($url[1]).'Controller';
             $method_from_url = empty($url[2]) ? 'index' : strtolower($url[2]);
-            $param = empty($url[3]) ? null : (int)$url[3];
+            $param = empty($url[3]) ? null : $url[3];
             self::$method = $method_from_url;
             self::$param = $param;
         }
 
         if(class_exists(self::$controller)) {
-            self::$controller_obj = new self::$controller(self::$method, self::$param = null);
+            self::$controller_obj = new self::$controller(self::$method, self::$param);
         }else{
             $view = new View();
             $view->load('404');

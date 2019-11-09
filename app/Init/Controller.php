@@ -16,7 +16,7 @@ class Controller {
             $method = 'index';
         }
         if(method_exists($this, $method)){
-            $this->$method();
+            $this->$method($param);
         }else{
             $this->view->load('404');
         }
