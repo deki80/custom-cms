@@ -8,7 +8,7 @@ class Controller {
     protected $model;
     protected $db;
 
-    public function __construct($method)
+    public function __construct($method, $param)
     {
         $this->view = new View;
 

@@ -7,13 +7,19 @@ use Quantox\Models\StudentModel;
 
 class StudentsController extends Controller{
 
-    public function __construct($method)
+    public function __construct($method, $param)
     {
-        parent::__construct($method);
+        parent::__construct($method, $param);
     }
 
     public function index()
     {
+
+    }
+
+    public function edit()
+    {
+        $model = new StudentModel();
 
     }
 
