@@ -7,9 +7,9 @@ use Quantox\Models\HomeModel;
 
 class HomeController extends Controller {
 
-    public function __construct($method)
+    public function __construct($method, $param)
     {
-        parent::__construct($method);
+        parent::__construct($method, $param);
     }
 
     public function index()
