@@ -41,7 +41,13 @@ class StudentModel extends Model
 
     public function get_student_grades()
     {
-
+        $query = "SELECT grade_value 
+                  FROM " . DB_NAME . ".grades  
+                  WHERE student_id = :student";
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute([':student' => $this->student_id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
 }

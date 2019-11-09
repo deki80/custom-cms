@@ -4,6 +4,7 @@ namespace Quantox\Controllers;
 
 use Quantox\Init\Controller;
 use Quantox\Models\StudentModel;
+use Quantox\Models\BoardMolel;
 
 class StudentsController extends Controller{
     private $student;
@@ -22,7 +23,9 @@ class StudentsController extends Controller{
     {
         $model = new StudentModel($param);
         if($model->is_user) {
-            echo "postoji";
+            $grades = $model->get_student_grades();
+            $board = new BoardMolel($param);
+            $passedBoard = $board->board_pased($grades);
         }else{
             $this->view->load('404');
         }
