@@ -6,6 +6,7 @@ use Quantox\Init\Controller;
 use Quantox\Models\StudentModel;
 
 class StudentsController extends Controller{
+    private $student;
 
     public function __construct($method, $param)
     {
@@ -17,10 +18,14 @@ class StudentsController extends Controller{
 
     }
 
-    public function edit()
+    public function edit($param)
     {
-        $model = new StudentModel();
-
+        $model = new StudentModel($param);
+        if($model->is_user) {
+            echo "postoji";
+        }else{
+            $this->view->load('404');
+        }
     }
 
 }
