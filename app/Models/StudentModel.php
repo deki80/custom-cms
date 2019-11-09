@@ -50,4 +50,13 @@ class StudentModel extends Model
         return $result;
     }
 
+    public function show_student()
+    {
+        $student = [];
+        $student['First Name'] = $this->student_firstname;
+        $student['Last Name'] = $this->student_lastname;
+        $student['Index Nomber'] = $this->student_index;
+        return $student;
+    }
+
 }

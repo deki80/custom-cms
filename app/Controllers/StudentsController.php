@@ -26,6 +26,11 @@ class StudentsController extends Controller{
             $grades = $model->get_student_grades();
             $board = new BoardMolel($param);
             $passedBoard = $board->board_pased($grades);
+            $data = [];
+            $data['user'] = $model->show_student();
+            $data['grades'] = array_column($grades,'grade_value');
+            $data['passed'] = $passedBoard;
+            echo json_encode($data);
         }else{
             $this->view->load('404');
         }

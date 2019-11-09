@@ -31,9 +31,15 @@ class BoardMolel extends Model
     public function board_pased($grades)
     {
         if($this->board_name === "CSM") {
-
-        }elseif ($this->boad_name === "CSMB") {
-
+            $grades_array = [];
+            foreach ($grades as $grade) {
+                array_push($grades_array, $grade['grade_value']);
+            }
+            $grades_array = array_filter($grades_array);
+            $average = array_sum($grades_array) / count($grades_array);
+            return $average >= 7 ? true : false;
+        }elseif ($this->board_name === "CSMB") {
+            return "Did not finished on time";
         }
     }
 
