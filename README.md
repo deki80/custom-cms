@@ -1,5 +1,5 @@
-# quantox-test
-A test provided by Quantox Company
+# custom cms
+Practising cms solution with php
 
 endpoints: 
 
